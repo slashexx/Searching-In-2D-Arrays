@@ -32,23 +32,16 @@ public class SnailSortin2D{
             int count=0;
 
             for (int i = 0; i < n/2; i++) {
-                for(int j=i; j<n-i; j++){
-                    arr[count++] = matrix[i][j];
-                }
-                for(int j=i+1; j< n-i; j++){
-                    arr[count++] = matrix[j][n-i-1];
-                }
-                for(int j = i+1; j<n-i; j++){
-                    arr[count++] = matrix[n-i-1][n-j-1];
-                }
-                for(int j = i+1; j< n-i-1; j++){
-                    arr[count++] = matrix[n-j-1][i];
-                }
+                for(int j=i; j<n-i; j++) arr[count++] = matrix[i][j];
+                for(int j=i+1; j< n-i; j++) arr[count++] = matrix[j][n - i - 1];
+                for(int j = i+1; j<n-i; j++) arr[count++] = matrix[n - i - 1][n - j - 1];
+                for(int j = i+1; j< n-i-1; j++) arr[count++] = matrix[n - j - 1][i];
             }
-            if(n%2==0){
+            if(n%2 !=0){
                 arr[count++] = matrix[n/2][n/2];
             }
 
+            Arrays.sort(arr);
             return arr;
         }
 
